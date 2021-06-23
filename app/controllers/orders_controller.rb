@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
 
     line_items = LineItem.where(order_id: params[:id])
 
-    @products = LineItem.select(:image, :name, :quantity, :item_price_cents, :total_price_cents).joins(:product, :order).where(order_id: params[:id])
+    @products = LineItem.select(:image, :name, :description, :quantity, :item_price_cents, :total_price_cents, :product_id).joins(:product, :order).where(order_id: params[:id])
 
     # @products = Product.select(Arel.star).where(LineItem.arel_table[:order_id].eq(params[:id])).joins(
     #   Product.arel_table.join(LineItem.arel_table).on(
