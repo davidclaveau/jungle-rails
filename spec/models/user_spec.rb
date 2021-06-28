@@ -27,4 +27,10 @@ RSpec.describe User, type: :model do
       expect{ User.create!(:name => "Fake Name", :email => "test@test.com", :password => "foo", :password_confirmation => "password").to raise_error(ActiveRecord::RecordInvalid) }
     end
   end
+
+  describe '.authenticate_with_credentials' do
+    it ("should create an ") do
+      
+    end
+  end
 end
