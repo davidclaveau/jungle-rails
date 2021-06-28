@@ -22,5 +22,9 @@ RSpec.describe User, type: :model do
     it ("should provide an error when name is null") do
       expect{ User.create!(:name => nil, :email => "test@test.com", :password => "password", :password_confirmation => "password").to raise_error(ActiveRecord::RecordInvalid) }
     end
+
+    it ("should provide an error when password is fewer than six characters") do
+      expect{ User.create!(:name => "Fake Name", :email => "test@test.com", :password => "foo", :password_confirmation => "password").to raise_error(ActiveRecord::RecordInvalid) }
+    end
   end
 end
