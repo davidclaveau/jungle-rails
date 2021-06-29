@@ -28,23 +28,32 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe '.authenticate_with_credentials' do
-    it ("should be nil and not allow user to login with incorrect password") do
-      user = User.create!(:name => "test_name", :email => "test@test.com", :password => "password", :password_confirmation => "password")
+  before :each do
+    @user = User.new(
+      name: "test_name",
+      email: "test@test.com",
+      password: "password",
+      password_confirmation: "password"
+    )
+  end
 
-      expect(User.authenticate_with_credentials("test@test", "foo")).to be_nil
+  describe '.authenticate_with_credentials' do
+    it ("should not allow user to login with incorrect password") do
+      @user.save
+
+      expect(User.authenticate_with_credentials(@user.name, "foo")).to be_nil
     end
 
     it ("should allow user to login and return proper email") do
-      user = User.create!(:name => "test_name", :email => "test@test.com", :password => "password", :password_confirmation => "password")
+      @user.save
 
-      expect(User.authenticate_with_credentials("test@test.com", "password")).to be_truthy.and have_attributes(:email => "test@test.com")
+      expect(User.authenticate_with_credentials(@user.email, @user.password)).to be_truthy.and have_attributes(:email => @user.email)
     end
     
-    it ("should allow user to login and return proper email") do
-      user = User.create!(:name => "test_name", :email => "test@test.com", :password => "password", :password_confirmation => "password")
+    it ("should allow user to login with case insensitivity") do
+      @user.save
 
-      expect(User.authenticate_with_credentials("  TEST@TEST.com  ", "password")).to be_truthy.and have_attributes(:email => "test@test.com")
+      expect(User.authenticate_with_credentials("  TEST@TEST.com  ", @user.password)).to be_truthy.and have_attributes(:email => @user.email)
     end
   end
 end
