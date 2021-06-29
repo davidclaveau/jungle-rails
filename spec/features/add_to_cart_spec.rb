@@ -16,7 +16,14 @@ RSpec.feature "Visitor adds products to the cart, cart updates by one", type: :f
     end
   end
 
-  scenario "They can add products to the cart" do
+  scenario "They can add products to the cart, cart shows update" do
+    visit root_path
+
+    page.first('article.product').find_button('Add').click
+
+    expect(page.should have_content('My Cart (1)'))
+
+    save_and_open_screenshot "test-three-add-to-cart.png"
     
   end
 

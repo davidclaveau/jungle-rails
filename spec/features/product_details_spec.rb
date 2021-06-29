@@ -23,7 +23,6 @@ RSpec.feature "Visitor clicks on a specific product", type: :feature, js: true d
 
     expect(page).to have_css 'article.product-detail'
 
-    # save_and_open_screenshot "test-two-product-page.png"
+    save_and_open_screenshot "test-two-product-page.png"
   end
-
 end
