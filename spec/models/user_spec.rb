@@ -29,8 +29,22 @@ RSpec.describe User, type: :model do
   end
 
   describe '.authenticate_with_credentials' do
-    it ("should create an ") do
-      
+    it ("should be nil and not allow user to login with incorrect password") do
+      user = User.create!(:name => "test_name", :email => "test@test.com", :password => "password", :password_confirmation => "password")
+
+      expect(User.authenticate_with_credentials("test@test", "foo")).to be_nil
+    end
+
+    it ("should allow user to login and return proper email") do
+      user = User.create!(:name => "test_name", :email => "test@test.com", :password => "password", :password_confirmation => "password")
+
+      expect(User.authenticate_with_credentials("test@test.com", "password")).to be_truthy.and have_attributes(:email => "test@test.com")
+    end
+    
+    it ("should allow user to login and return proper email") do
+      user = User.create!(:name => "test_name", :email => "test@test.com", :password => "password", :password_confirmation => "password")
+
+      expect(User.authenticate_with_credentials("  TEST@TEST.com  ", "password")).to be_truthy.and have_attributes(:email => "test@test.com")
     end
   end
 end
