@@ -4,6 +4,15 @@
   <div class="col-sm-6 col-sm-offset-1">
     <%= form_for :user, url: '/users' do |f| %>
 
+    <% if flash[:error] %>
+      <div class="alert alert-danger">
+        <strong>The following errors prevented saving:</strong>
+        <ul>
+          <%= flash[:error] %>
+        </ul>
+      </div>
+    <% end %>
+
       <div class="form-group">
         <%= f.label :name %>
         <%= f.text_field :name, class: 'form-control' %>
