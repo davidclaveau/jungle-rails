@@ -2,32 +2,29 @@
 
 A mini e-commerce application built with Rails 4.2. Built from existing Lighthouse Labs code to gain experience understanding, working in, and modifying an established code base.
 
+---
+
 ## Final Product
 
-### Homepage of Jungle
-![HomePage of Jungle]()
+#### Homepage of Jungle
+![Homepage of Jungle](https://raw.githubusercontent.com/davidclaveau/jungle-rails/master/public/images/home-page.png)
 
-### Product Page of Jungle
-![Product Page of Jungle]()
+#### Product Page of Jungle
+![Product Page of Jungle](https://raw.githubusercontent.com/davidclaveau/jungle-rails/master/public/images/product-page.png)
 
-### Signup Page of Jungle
-![Signup Page of Jungle]()
+#### Signup Page of Jungle
+![Signup Page of Jungle](https://raw.githubusercontent.com/davidclaveau/jungle-rails/master/public/images/signup-page.png)
 
-### Cart Page of Jungle
-![Cart Page of Jungle]()
+#### Cart Page of Jungle
+![Cart Page of Jungle](https://raw.githubusercontent.com/davidclaveau/jungle-rails/master/public/images/cart-page.png)
 
-### Order Confirmation Page of Jungle
-![Order Confirmation Page of Jungle]()
+#### Order Confirmation Page of Jungle
+![Order Confirmation Page of Jungle](https://raw.githubusercontent.com/davidclaveau/jungle-rails/master/public/images/order-confirmation-page.png)
 
-### Admin Product Page of Jungle
-![Admin Product Page of Jungle]()
+#### Admin Product Page of Jungle
+![Admin Product Page of Jungle](https://raw.githubusercontent.com/davidclaveau/jungle-rails/master/public/images/admin-add-products-page.png)
 
-## Additional Steps for Apple M1 Machines
-
-1. Make sure that you are runnning Ruby 2.6.6 (`ruby -v`)
-1. Install ImageMagick `brew install imagemagick imagemagick@6 --build-from-source`
-2. Remove Gemfile.lock
-3. Replace Gemfile with version provided [here](https://gist.githubusercontent.com/FrancisBourgouin/831795ae12c4704687a0c2496d91a727/raw/ce8e2104f725f43e56650d404169c7b11c33a5c5/Gemfile)
+---
 
 ## Setup
 
@@ -40,11 +37,15 @@ A mini e-commerce application built with Rails 4.2. Built from existing Lighthou
 7. Put Stripe (test) keys into appropriate .env vars
 8. Run `bin/rails s -b 0.0.0.0` to start the server
 
+---
+
 ## Stripe Testing
 
 Use Credit Card # 4111 1111 1111 1111 for testing success scenarios.
 
 More information in their docs: <https://stripe.com/docs/testing#cards>
+
+---
 
 ## Dependencies
 
